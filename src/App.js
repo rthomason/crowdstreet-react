@@ -141,7 +141,7 @@ class TableForm extends React.Component {
   }
 }
 
-// The component containing the rendered table and its form.
+// The main Table component containing the rendered table (TableDisplay) and its form (TableForm).
 class Table extends React.Component {
   constructor(props) {
     super(props);
@@ -191,6 +191,7 @@ class Table extends React.Component {
   }
 }
 
+// Put the 3 main Table components into a table and assign the default values.
 function App() {
   return (
     <div className="App">
