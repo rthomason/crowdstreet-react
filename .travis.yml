@@ -13,7 +13,7 @@ deploy:
   app: "docker-crowdstreet-react"
   env: "DockerCrowdstreetReact-env"
   bucket_name: "elasticbeanstalk:us-west-2:985477181077"
-  bucket_path: "docker-crowdstreet-react"
+#  bucket_path: "docker-crowdstreet-react"
   cleanup: false
   on:
     branch: master
