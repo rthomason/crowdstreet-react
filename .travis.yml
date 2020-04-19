@@ -1,0 +1,22 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t rthomason/crowdstreet-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true rthomason/crowdstreet-react npm run test
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-west-2"
+  app: "docker-crowdstreet-react"
+  env: "DockerCrowdstreetReact-env"
+  bucket_name: "elasticbeanstalk:us-west-2:985477181077"
+  bucket_path: "docker-crowdstreet-react"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET__KEY
+

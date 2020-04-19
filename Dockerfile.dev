@@ -1,0 +1,12 @@
+FROM node:alpine
+
+WORKDIR /app
+
+# configure deps first
+COPY ./package.json ./
+RUN npm install
+
+# then copy source code
+COPY . .
+
+CMD ["npm", "start"]
