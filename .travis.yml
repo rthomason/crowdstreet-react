@@ -16,6 +16,7 @@ deploy:
   env: "DockerCrowdstreetReact-env"
   bucket_name: "elasticbeanstalk:us-west-2:985477181077"
   bucket_path: "docker-crowdstreet-react"
+  skip_cleanup: true
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
