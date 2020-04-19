@@ -13,7 +13,7 @@ class TableDisplay extends React.Component {
 
     return (
       <div>
-        <table className={'table-' + this.props.table} style={{[styleKey] : styleVal}}>
+        <table className={'table-' + this.props.table} style={{ [styleKey]: styleVal }}>
           {createTableBody(this.props.n, this.props.x, this.props.m, this.props.d)}
         </table>
       </div>
@@ -92,7 +92,6 @@ class TableForm extends React.Component {
 
   render() {
     return (
-      <div id="results" className="search-results">
       <form onSubmit={this.handleSubmit}>
         <table id="input">
           <tbody>
@@ -142,7 +141,6 @@ class TableForm extends React.Component {
           </tbody>
         </table>
       </form>
-      </div>
     );
   }
 }
@@ -166,11 +164,11 @@ class Table extends React.Component {
   }
 
   onClick() {
-    this.setState({show: !this.state.show})
+    this.setState({ show: !this.state.show })
   }
 
   handleInputChange(name, value) {
-    this.setState({[name]: value});
+    this.setState({ [name]: value });
   }
 
   render() {
@@ -186,11 +184,11 @@ class Table extends React.Component {
         <TableDisplay table={table} n={n} x={x} m={m} w={w} d={d} />
         <div>
           <input type="button" value="Configure" onClick={this.onClick} />
-          { this.state.show ? <TableForm
-              table={table} n={n} x={x} m={m} w={w} d={d}
-              onFormChange={(name, value) => this.handleInputChange(name, value)}
-              onConfigAction={() => this.onClick()}
-              /> : null }
+          {this.state.show ? <TableForm
+            table={table} n={n} x={x} m={m} w={w} d={d}
+            onFormChange={(name, value) => this.handleInputChange(name, value)}
+            onConfigAction={() => this.onClick()}
+          /> : null}
         </div>
       </div>
     );
