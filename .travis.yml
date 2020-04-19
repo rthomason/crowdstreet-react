@@ -1,23 +1,21 @@
 services:
-  - docker
-
+- docker
 before_install:
-  - docker build -t rthomason/crowdstreet-react -f Dockerfile.dev .
-
+- docker build -t rthomason/crowdstreet-react -f Dockerfile.dev .
 script:
-  - docker run -e CI=true rthomason/crowdstreet-react npm run test
-
+- docker run -e CI=true rthomason/crowdstreet-react npm run test
 deploy:
   provider: elasticbeanstalk
-  region: "us-west-2"
-  app: "docker-crowdstreet-react"
-  env: "DockerCrowdstreetReact-env"
-  bucket_name: "elasticbeanstalk:us-west-2:985477181077"
-  bucket_path: "docker-crowdstreet-react"
+  region: us-west-2
+  app: docker-crowdstreet-react
+  env: DockerCrowdstreetReact-env
+  bucket_name: elasticbeanstalk:us-west-2:985477181077
+  bucket_path: docker-crowdstreet-react
   edge: true
   cleanup: false
   on:
     branch: master
-  access_key_id: $AWS_ACCESS_KEY
-  secret_access_key: $AWS_SECRET_KEY
-
+env:
+  global:
+  - secure: EawykGhUbEsKPl7ibD7qeuh+RodDngoIeXrSa3ABvIb2q2hRTmZLXWEqQyRxVcgVCUbWPHPATPoyOLPpw71iiL27+UsZ2CY3LlqjgxKNSHzwFy5IVQujeaUGuxnP0X8GKxsMbCYRaBTgGVaT2HCSDNzH+SWRZ71wOdEyP4pluby/Zw62tz0blxgGx4ONzvLiwDKDjoWBbShUORqoGmKb8Sw9Z7gdTHarPMeiYCA17CcQFEw6iIBvKhLDRYakbO5n9QfrSxhZ5RVvIBl+s3IobFbEhhwlhSuA0m3PAFZiGH/g3wErNptGfl9nPNmkj7qVb/TsOiyiTKzPtWTaDzXZUxlLfnurdIokKPQkecA2kJWvRLT6GRupbZF7xu6rF77fYmzO5A2ZxwZvjBIsmFGgCbzB/XGMV9wdgi2oeE12GIKX+nOY0ojodIMyub56K7uuhTNr6gdipe3/WPsFXPYPRwgv9cZFtUDVN25a0n/IeRPoqMixQnbnZjXw2jAagPpcQLJkZ6AVbCsV6gddP5z7ECOST3uwiDB8gPqU3QLq1rdAYRKJDow622Dlgp4obDC6IvG464b+kRyiQFky3NCp6gomU/mq6C6GzZU9A8jR8zzvlGjWc0O1zdM0Psr9cC2exGLltm1WxCh/SY7pqQfHJgC48P8bUnDqURUUPQStSU4=
+  - secure: ZpZYMqRaKdekdvofU1RZ+EjRpJYuQBEQQb3YXGf6EymmKVjAQ1/PMjVlVE/ViP105nbQ/vIqjQGY2ZPiyfxrsEukIj4QeW5fxNIKID5ZnMHuiGamqFlLshk/B02hsMTVrkySWzHNBfKcplOf/2YRo5zgOk/kFZ66Xf5i5iVuEI/aSK/rXuwkDaNepnLaurwVS4M4YFbqyMg0P7XSpJdtaXsPww3O6nIPIk2fcseaevtLGPyu9lNjpxjbGd/HGLLw7oMmcA5Kz49PHOMPMT6k9hDf6E0s/pzC4u6npDgCJn/0roYEcv1m0SA0BHXkWaf2j/kix4RLuQXY3gbs9gLSGtffuLNKu1UZ8MKYQvnxS8p7Mosh6YcFDHefaM0zuDjQN01beVbWlkB3AP/i0NW6YZlVr9zUlfUSquW3897/jmuRFsQNxU8gM9fln4mU9fqjJ1N2wT6bi1Q1BrK9VbIFFyjdKywLTtVuTNEYbE6oGnxBoWC2scch8ilgc7znZZVlf18sdUbD3RjiE2AVx7oyBwwyJcgyKzrX9kLcThuW6dp60AEtIrJZHHt8FQxk3sKU+2pImLYLJf5U8cn22Z8hqW6/TapPYCuxkW51NNl7ZsKDsqXtuuyVO9+i6aTYbrnDGx1aO3av0619f5PRodDIwknF1Z9bNW4GaCEQI1YcZeM=
