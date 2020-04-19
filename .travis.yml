@@ -9,15 +9,9 @@ deploy:
   region: us-west-2
   app: docker-crowdstreet-react
   env: DockerCrowdstreetReact-env
-  bucket_name: elasticbeanstalk-us-west-2-985477181077
+  bucket: elasticbeanstalk-us-west-2-985477181077
   edge: true
   on:
     branch: master
-  access_key_id:
-    secure: "$AWS_ACCESS_KEY"
-  secret_access_key:
-    secure: "$AWS_SECRET_KEY"
-env:
-  global:
-  - secure: qwji94/D8nUURmsgxB4zFcyfPP2BO1oOGlHnja+jrlam0gY7uJwKLzhQKFmJ9NJt4OziHL8yuKDCbnF9gj68DJOOf+EGS/xpTJF1xcKpDX0I8Is3bVOtHrr6ltbbQRJxy7guxzDmc9fdF94wo6hTRwmAUCbLNRo/WIT5lVreF6YYOAthbIYljtpteJ+mLoaxFnHAxUBvgmvYE+ibDn+a34mB2Pe0v2Gtu6b0KrcEbjdR+GU5NFSFWzn0yx35FIOUtz4i27ddA+H5WoFua7vElEw7Zh7kAAeGSsAV7ob+tI8W/kyL2kiy6w/KFV2nVhmCWydxdHq+7Hcwgph+4+UtpG2XqEM7vu7E0bP+gxG/3ObagtbOw8Yi18QE5vTNA46A8uzFlBTnUg6iJECrP3wvbc7wv2QwjiC2n5PUKnXtDV5IeEJhRyzhmBXnWhqzH0+n9cXJGBoSfBXy79HUJE2v4FRl5y53jzkrsiXkS+ceopK72umJ1HqvSDztCej7ccw6+uaT4N8jIfyV99DXpU51s0QwqY9laW2D/yAm3L+UqHSSjic1r2eEG0neBpsI2Xd47/Q9F3Y7dRO+PizIaMbGi949i3d447zlUl3OFN+iddz7M9oTmsBUcvl8CEympll3bzea5raOoMUhYW/Jzh6rhG3qkvx6NJWJnL2e9etE2gg=
-  - secure: jHsbW60t8jqSm3rG9wFGoTXNGwamw/LaWiuMB7jLBFGj2QPK8NueYI+638ilzXLeqrrmUcQ8N5xmmcA4BpGviwyLpDEv20WI1B6LSdmfzFvBdlsOcMZ4d17YlxmIZn1ZfrLG3nrBw41KnLGkMtC1/SEA4QQUXBJDsuBPXkUBhbt39ouUewHWuTI5mF0hiwMOmkF1zO7QeWju44Y2/QCQZDN5aZgNeXl+pjVYxk8mY4DPuWNgCIACrhiYHNcX5hX/uH14cA4UmSmgvN8K/V2YZcpLE/wLLTT6ByaIZszQ/HHVksnT6VSC+dCg62UpaWgjy1+UCOIFs7azFlFRI5in+A/6BNcgzu4uIIAzuov2d3wt4bRkQ9CDbG2ePLKFuZpPqsyyePgGKkwigVeVyKnOkODz4dUC3ybfe+ONaNOhJHkituAb93RVTPYqeQXSkI9dXWfTq/kyWubABmH9sBJjfEA3uhuPviCXVkkfg2WO3/X3NknXewRmHk+4BA94728nBXx94WFy/Wf0JOVOrGy1tMPMlVo8liRjLojlQOp8qjZ2xpOwEKRJb7EwZyiidJSt2qpNqBIqGP0PODT3GSmiNTc7qqMeuHbEJeDHyxypLz9kELGU2lHcbyOrVCGke4lnNLsoH6I89Y++i231/HoXYuof+x2nCMIUJGymyseWDU8=
+  access_key_id: "$AWS_ACCESS_KEY"
+  secret_access_key: "$AWS_SECRET_KEY"
