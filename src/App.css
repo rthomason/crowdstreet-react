@@ -1,5 +1,15 @@
+:root {
+  --width-red: 20%;
+  --width-green: 30%;
+  --width-blue: 40%;
+}
+
 .App {
   text-align: left;
+}
+
+.main-table td{
+  vertical-align: top;
 }
 
 .cell-enabled-false {
@@ -8,12 +18,15 @@
 
 .table-red {
   border: 2px solid red;
+  width: var(--width-red);
 }
 
 .table-green {
   border: 2px solid green;
+  width: var(--width-green);
 }
 
 .table-blue {
   border: 2px solid blue;
+  width: var(--width-blue);
 }

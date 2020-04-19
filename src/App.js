@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 
 // Show the rendered table (grid of numbers).
@@ -8,9 +8,12 @@ class TableDisplay extends React.Component {
   }
 
   render() {
+    const styleKey = '--width-' + this.props.table;
+    const styleVal = this.props.w + '%';
+
     return (
       <div>
-        <table className={'table-' + this.props.table}>
+        <table className={'table-' + this.props.table} style={{[styleKey] : styleVal}}>
           {createTableBody(this.props.n, this.props.x, this.props.m, this.props.d)}
         </table>
       </div>
@@ -99,25 +102,25 @@ class TableForm extends React.Component {
             <tr>
               <td>
                 <label>n: </label>
-                <input type="text" name="n" defaultValue={this.props.n} ref={this.n} />
+                <input type="text" name="n" defaultValue={this.props.n} ref={this.n} maxlength="5" size="5" />
               </td>
             </tr>
             <tr>
               <td>
                 <label>x: </label>
-                <input type="text" name="x" defaultValue={this.props.x} ref={this.x} />
+                <input type="text" name="x" defaultValue={this.props.x} ref={this.x} maxlength="5" size="5" />
               </td>
             </tr>
             <tr>
               <td>
                 <label>m: </label>
-                <input type="text" name="m" defaultValue={this.props.m} ref={this.m} />
+                <input type="text" name="m" defaultValue={this.props.m} ref={this.m} maxlength="5" size="5" />
               </td>
             </tr>
             <tr>
               <td>
                 <label>w: </label>
-                <input type="text" name="w" defaultValue={this.props.w} ref={this.w} />
+                <input type="text" name="w" defaultValue={this.props.w} ref={this.w} maxlength="5" size="5" />
                 %
               </td>
             </tr>
@@ -197,7 +200,7 @@ class Table extends React.Component {
 function App() {
   return (
     <div className="App">
-      <table>
+      <table className="main-table">
         <tbody>
           <tr>
             <td>
