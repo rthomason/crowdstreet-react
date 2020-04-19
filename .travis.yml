@@ -15,8 +15,10 @@ deploy:
   cleanup: false
   on:
     branch: master
-  access_key_id: "$AWS_ACCESS_KEY"
-  secret_access_key: "$AWS_SECRET_KEY"
+  access_key_id:
+    secure: "$AWS_ACCESS_KEY"
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
 env:
   global:
   - secure: LqDAAQAX0eD3QDcqruyLv55YKHtwzCjfgdIpcH8P3HhNjc5UvVErVEo720+QgDmFlSocOi/CIxWFoFrYt2ywNn6CSVsqoYtMTZD0AlW+JeeSQCYmwT+vEuUOa4NUlFZjeZ6duJ1pJJN1TAoGDlWEuSNEouauEZ3UOP+EuRSxKsQ1qW4oqSi6/exUMhG4Rj6EGfv+iDkn2WzuvJxv2+jaLOIdyBCQT4n1ejXtnvyh8kUMR5+UMHPFu9Jxvnl9FVaf8ohgVdSF/R3Xk0Lsg2cfL5OjnPW0DIGPlVHxrbojFiyP7nv5SWGV4HEm72/hukIkvi/3I/qI7lWO4vnhwD4lmG4xIeX7Z4lbluPAkVrY0ehYoPSXB/5PhbqncFfhKevFxgsXOjqFlKcm5tfZB9XhfYKx+lc/vEGvnMWW6x5H3oisYIV8AH3nbq5yCTpnqLcgIKtMQhyF/pdpcItYryh5G17ZEMUAVZi4SVLSND7bufFsq4cQCzm4uFCLdl2l+f1EOZpIRIrtZBifmvd9QVLknOgmEqu2U6VT+4szzRf5iICDPKTZ192jZhqlxYGmVh+g/n+qvII3BDEulgeiZfomQ4/dAPwtTyXKaMT/wARtHFIhHHbSYv0QVnaIsNVckN1vXz/2DCxwRnZzfWJ0SSlIJZcvY7WLDQoMXhxwqr4TE9o=
