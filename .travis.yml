@@ -11,8 +11,8 @@ deploy:
   env: DockerCrowdstreetReact-env
   bucket_name: elasticbeanstalk:us-west-2:985477181077
   bucket_path: docker-crowdstreet-react
-  edge: true
-  cleanup: false
+#  edge: true
+#  cleanup: false
   on:
     branch: master
   access_key_id:
