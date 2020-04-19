@@ -3,17 +3,13 @@ import './App.css';
 
 // Show the rendered table (grid of numbers).
 class TableDisplay extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const styleKey = '--width-' + this.props.table;
     const styleVal = this.props.w + '%';
 
     return (
-      <div>
-        <table className={'table-' + this.props.table} style={{ [styleKey]: styleVal }}>
+      <div className='table-display'>
+        <table className={'table-form table-' + this.props.table} style={{ [styleKey]: styleVal }}>
           {createTableBody(this.props.n, this.props.x, this.props.m, this.props.d)}
         </table>
       </div>
@@ -28,11 +24,11 @@ function createTableBody(start, increment, limit, ltr) {
   const ilimit = parseInt(limit);
   const numRows = Math.ceil((ilimit - istart) / iincrement / 5);
 
-  var bltr = (ltr == 'true')
+  var bltr = (ltr === 'true')
   var rows = [];
   for (let i = 0; i < numRows; i++) {
     let offset = i * 5 * increment;
-    rows.unshift(createRow(istart + offset, iincrement, ilimit, bltr))
+    rows.unshift(createRow(istart + offset, iincrement, ilimit, bltr, i))
     bltr = !bltr;
   }
   return <tbody>{rows}</tbody>;
@@ -41,7 +37,7 @@ function createTableBody(start, increment, limit, ltr) {
 // Create one row in the table. If ltr is true, then push each
 // value to the end to simulate counting up. If ltr is false,
 // then push each value to the front to simulate counting down.
-function createRow(start, increment, limit, ltr) {
+function createRow(start, increment, limit, ltr, rowNum) {
   var cells = [];
   for (let i = 0; i < 5; i++) {
     let number = start + (i * increment);
@@ -52,12 +48,12 @@ function createRow(start, increment, limit, ltr) {
       cells.unshift(createCell(number, enabled))
     }
   }
-  return <tr>{cells}</tr>;
+  return <tr key={rowNum}>{cells}</tr>;
 }
 
 // Create one cell in a row.
 function createCell(number, enabled) {
-  return <td id={number} className={'cell-enabled-' + enabled}>{number}</td>;
+  return <td key={number} className={'cell-enabled-' + enabled}>{number}</td>;
 }
 
 // The form for modifying the table attributes.
@@ -95,35 +91,35 @@ class TableForm extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <table id="input">
           <tbody>
-            <tr>
+            <tr key='color'>
               <td><label>table: </label><label>{this.props.table}</label></td>
             </tr>
-            <tr>
+            <tr key='n'>
               <td>
                 <label>n: </label>
-                <input type="text" name="n" defaultValue={this.props.n} ref={this.n} maxlength="5" size="5" />
+                <input type="text" name="n" defaultValue={this.props.n} ref={this.n} maxLength="5" size="5" />
               </td>
             </tr>
-            <tr>
+            <tr key='x'>
               <td>
                 <label>x: </label>
-                <input type="text" name="x" defaultValue={this.props.x} ref={this.x} maxlength="5" size="5" />
+                <input type="text" name="x" defaultValue={this.props.x} ref={this.x} maxLength="5" size="5" />
               </td>
             </tr>
-            <tr>
+            <tr key='m'>
               <td>
                 <label>m: </label>
-                <input type="text" name="m" defaultValue={this.props.m} ref={this.m} maxlength="5" size="5" />
+                <input type="text" name="m" defaultValue={this.props.m} ref={this.m} maxLength="5" size="5" />
               </td>
             </tr>
-            <tr>
+            <tr key='w'>
               <td>
                 <label>w: </label>
-                <input type="text" name="w" defaultValue={this.props.w} ref={this.w} maxlength="5" size="5" />
+                <input type="text" name="w" defaultValue={this.props.w} ref={this.w} maxLength="5" size="5" />
                 %
               </td>
             </tr>
-            <tr>
+            <tr key='d'>
               <td>
                 <label>d: </label>
                 <select name="d" defaultValue={this.props.d} ref={this.d}>
@@ -132,7 +128,7 @@ class TableForm extends React.Component {
                 </select>
               </td>
             </tr>
-            <tr>
+            <tr key='action'>
               <td>
                 <input type="submit" value="Ok" />
                 <input type="button" value="Cancel" onClick={this.handleCancel} />
@@ -180,7 +176,7 @@ class Table extends React.Component {
     const d = this.state.d;
 
     return (
-      <div>
+      <div className='table'>
         <TableDisplay table={table} n={n} x={x} m={m} w={w} d={d} />
         <div>
           <input type="button" value="Configure" onClick={this.onClick} />
@@ -201,13 +197,13 @@ function App() {
       <table className="main-table">
         <tbody>
           <tr>
-            <td>
+            <td key='t1'>
               <Table table='red' n='8' x='1' m='29' w='20' d='true' />
             </td>
-            <td>
+            <td key='t2'>
               <Table table='green' n='231' x='1' m='247' w='30' d='true' />
             </td>
-            <td>
+            <td key='t3'>
               <Table table='blue' n='47' x='2' m='81' w='40' d='false' />
             </td>
           </tr>

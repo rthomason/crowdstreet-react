@@ -8,12 +8,21 @@
   text-align: left;
 }
 
-.main-table td{
+table {
+  table-layout: auto;
+  border-spacing: 5px;
+}
+
+.main-table td {
   vertical-align: top;
 }
 
 .cell-enabled-false {
   opacity: 0.2;
+}
+
+.table-form td {
+  border: 1px solid black;
 }
 
 .table-red {
