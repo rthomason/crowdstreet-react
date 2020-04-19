@@ -9,10 +9,8 @@ deploy:
   region: us-west-2
   app: docker-crowdstreet-react
   env: DockerCrowdstreetReact-env
-  bucket_name: elasticbeanstalk:us-west-2:985477181077
-#  bucket_path: docker-crowdstreet-react
-#  edge: true
-#  cleanup: false
+  bucket_name: elasticbeanstalk-us-west-2-985477181077
+  edge: true
   on:
     branch: master
   access_key_id:
